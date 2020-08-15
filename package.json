@@ -1,0 +1,56 @@
+{
+  "name": "typescript_babel_mocha_boilerplate",
+  "version": "1.0.0",
+  "description": "babel and mocha boilerplate with typescript support",
+  "license" : "BSD-3-Clause",
+  "main": "src/index.ts",
+  "exports": {
+    "src/": "./src/"
+  },
+  "scripts": {
+    "watch": "nodemon -w src --exec \"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\"",
+    "once": "babel-node --extensions '.ts,.js' src/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
+    "test": "mocha --require ts-node/register './test/**/*.?s' | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
+    "build": "babel --extensions '.ts,.js' src -s -D -d dist"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "latest",
+    "@babel/core": "latest",
+    "@babel/node": "latest",
+    "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/plugin-proposal-private-methods": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-typescript": "latest",
+    "@babel/register": "latest",
+    "@types/chai": "latest",
+    "@types/mocha": "latest",
+    "@types/pino": "latest",
+    "babel-plugin-root-import": "latest",
+    "chai": "latest",
+    "eslint": "latest",
+    "mocha": "latest",
+    "nodemon": "latest",
+    "pino-pretty": "latest",
+    "ts-node": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "lodash": "latest",
+    "pino": "latest",
+    "regenerator-runtime": "latest"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": false,
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "lib": ["es2018"]
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules"]
+}
