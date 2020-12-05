@@ -9,6 +9,8 @@ Good for:
  
  Absolute path imports starting with 'src/', see sample code.
  
+ Express and heroku support added out of the box.
+
  If you want to use react, please add jsx, tsx extensions manually.
  
  `npm run watch` for debug
