@@ -1,9 +1,31 @@
+import 'regenerator-runtime/runtime';
 import {log} from 'src/logger';
-import {add} from 'src/some/add';
-import {positive} from "src/some/positive";
+import express from 'express';
+import expressPinoLogger from 'express-pino-logger';
+import {setupRoutes} from 'src/route';
 
-log.debug('Started');
+export const app = express();
 
-log.info(`Calculating 3+5: ${add(3, 5)}`);
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/../template');
+app.set('x-powered-by', false);
+app.use(expressPinoLogger({logger: log}));
+app.use(express.static(__dirname + '/../public'));
 
-log.warn(`Checking positive: ${positive(6)}`);
+setupRoutes(app);
+
+(async () => {
+  const port = process.env.PORT || 80;
+
+  log.info('started');
+  log.info(`listening on port ${port}...`)
+  const server = app.listen(port);
+
+  function gracefulShutdown() {
+    log.warn('SIGTERM caught, exiting...');
+    server.close();
+  }
+
+  process.on('SIGTERM', gracefulShutdown);
+  process.on('SIGINT', gracefulShutdown);
+})();

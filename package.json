@@ -2,7 +2,7 @@
   "name": "typescript_babel_mocha_boilerplate",
   "version": "1.0.0",
   "description": "babel and mocha boilerplate with typescript support",
-  "license" : "BSD-3-Clause",
+  "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "exports": {
     "src/": "./src/"
@@ -11,7 +11,8 @@
     "watch": "nodemon -w src --exec \"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\"",
     "once": "babel-node --extensions '.ts,.js' src/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
     "test": "mocha --require ts-node/register './test/**/*.?s' | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
-    "build": "babel --extensions '.ts,.js' src -s -D -d dist"
+    "build": "babel --extensions '.ts,.js' src -s -D -d dist",
+    "start": "node dist/index.js"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -49,8 +50,14 @@
     "typescript": "latest"
   },
   "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-pino-logger": "^5.0.0",
     "lodash": "latest",
     "pino": "latest",
     "regenerator-runtime": "latest"
+  },
+  "engines": {
+    "node": "14.15.x"
   }
 }
