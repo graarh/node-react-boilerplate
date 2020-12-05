@@ -2,7 +2,7 @@ import './logger';
 import {log} from "src/logger";
 import {describe, it} from 'mocha';
 import {expect} from 'chai';
-import {add} from 'src/some/add';
+import {add} from 'src/logic/add';
 
 describe('some functions test', function () {
   log.info('test');
