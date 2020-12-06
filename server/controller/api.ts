@@ -1,4 +1,4 @@
-import {requestParams} from 'src/decorator/express';
+import {requestParams} from 'server/decorator/express';
 
 export class ApiController {
   private value = 123;

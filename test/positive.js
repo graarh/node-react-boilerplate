@@ -1,8 +1,8 @@
 import './logger';
-import {log} from "src/logger";
+import {log} from "server/logger";
 import {describe, it} from 'mocha';
 import {expect} from 'chai';
-import {positive} from "src/logic/positive";
+import {positive} from "server/logic/positive";
 
 describe('some functions test', function () {
   log.info('test');

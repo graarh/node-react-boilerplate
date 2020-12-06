@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "babel and mocha boilerplate with typescript support",
   "license": "BSD-3-Clause",
-  "main": "src/index.ts",
+  "main": "server/index.ts",
   "exports": {
-    "src/": "./src/"
+    "server/": "./server/"
   },
   "scripts": {
-    "watch": "nodemon -w src --exec \"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\"",
-    "once": "babel-node --extensions '.ts,.js' src/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
+    "watch": "nodemon -w server --exec \\\"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\\\"",
+    "once": "babel-node --extensions '.ts,.js' server/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
     "test": "mocha --require ts-node/register './test/**/*.?s' | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
-    "build": "babel --extensions '.ts,.js' src -s -D -d dist",
+    "build": "babel --extensions '.ts,.js' server -s -D -d dist",
     "start": "node dist/index.js"
   },
   "eslintConfig": {
@@ -58,6 +58,6 @@
     "regenerator-runtime": "latest"
   },
   "engines": {
-    "node": "14.15.x"
+    "node": "14.x"
   }
 }

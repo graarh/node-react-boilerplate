@@ -6,10 +6,11 @@
     "allowJs": true,
     "noEmit": true,
     "strict": false,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["es2018"]
   },
-  "include": ["src", "test"],
+  "include": [
+    "server", "test"],
   "exclude": ["node_modules"]
 }

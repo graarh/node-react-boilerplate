@@ -1,8 +1,8 @@
 import 'regenerator-runtime/runtime';
-import {log} from 'src/logger';
+import {log} from 'server/logger';
 import express from 'express';
 import expressPinoLogger from 'express-pino-logger';
-import {setupRoutes} from 'src/route';
+import {router} from 'server/route';
 
 export const app = express();
 
@@ -12,7 +12,7 @@ app.set('x-powered-by', false);
 app.use(expressPinoLogger({logger: log}));
 app.use(express.static(__dirname + '/../public'));
 
-setupRoutes(app);
+app.use(router);
 
 (async () => {
   const port = process.env.PORT || 80;

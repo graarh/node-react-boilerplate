@@ -1,4 +1,4 @@
-import {templateRequestParams, templateResponseParams} from 'src/decorator/express';
+import {templateRequestParams, templateResponseParams} from 'server/decorator/express';
 
 export class RootController {
   private value = 123;

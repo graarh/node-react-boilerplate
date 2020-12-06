@@ -8,12 +8,12 @@
       "loose": true
     }],
     ["babel-plugin-root-import", {
-      "rootPathSuffix": "./src/",
-      "rootPathPrefix": "src/"
+      "rootPathSuffix": "./server/",
+      "rootPathPrefix": "server/"
     }]
   ],
   "overrides": [{
-    "test": ["./src/**/*.ts", "./test/**/*.ts"],
+    "test": ["./server/**/*.ts", "./test/**/*.ts"],
     "presets": ["@babel/typescript"]
   }]
 }

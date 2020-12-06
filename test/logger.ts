@@ -1,5 +1,5 @@
 import {default as pino} from 'pino';
-import {setLogger} from 'src/logger';
+import {setLogger} from 'server/logger';
 
 setLogger(pino({
   level: 'debug',
