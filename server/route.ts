@@ -11,6 +11,9 @@ export const router = Router();
 
 const templates = Router();
 templates.use(express.urlencoded({extended: true}));
+templates.get('/index.html', handleAsTemplate({
+  handler: rootController.handleReactApp()
+}));
 templates.get('/', handleAsTemplate({
   handler: rootController.handleTemplate()
 }));

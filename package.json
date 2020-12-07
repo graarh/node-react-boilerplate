@@ -2,31 +2,50 @@
   "name": "typescript_babel_mocha_boilerplate",
   "version": "1.0.0",
   "description": "babel and mocha boilerplate with typescript support",
+  "private": true,
   "license": "BSD-3-Clause",
   "main": "server/index.ts",
   "exports": {
     "server/": "./server/"
   },
   "scripts": {
-    "watch": "nodemon -w server --exec \\\"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\\\"",
+    "build": "react-scripts build; babel --extensions '.ts,.js' server -s -D -d dist",
+    "start": "node dist/index.js",
     "once": "babel-node --extensions '.ts,.js' server/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
+    "watch": "nodemon -w server --exec \\\"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\\\"",
     "test": "mocha --require ts-node/register './test/**/*.?s' | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
-    "build": "babel --extensions '.ts,.js' server -s -D -d dist",
-    "start": "node dist/index.js"
+    "r-start": "react-scripts start",
+    "r-build": "react-scripts build",
+    "r-test": "react-scripts test"
   },
   "eslintConfig": {
-    "extends": "eslint:recommended",
+    "extends": [
+      "react-app",
+      "eslint:recommended"
+    ],
     "parserOptions": {
       "ecmaVersion": 7,
       "sourceType": "module"
     },
-    "env": {
-      "node": true
-    },
     "rules": {
       "no-console": 0,
       "no-unused-vars": 1
+    },
+    "env": {
+      "node": true
     }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "@babel/cli": "latest",
@@ -37,23 +56,45 @@
     "@babel/preset-env": "latest",
     "@babel/preset-typescript": "latest",
     "@babel/register": "latest",
+    "@jest/globals": "latest",
+    "@testing-library/dom": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/user-event": "latest",
     "@types/chai": "latest",
+    "@types/jest": "latest",
     "@types/mocha": "latest",
+    "@types/node": "latest",
     "@types/pino": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "babel-eslint": "latest",
     "babel-plugin-root-import": "latest",
     "chai": "latest",
     "eslint": "latest",
+    "eslint-config-react-app": "latest",
+    "eslint-plugin-flowtype": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-react-hooks": "latest",
     "mocha": "latest",
     "nodemon": "latest",
     "pino-pretty": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-scripts": "latest",
     "ts-node": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "web-vitals": "latest"
   },
   "dependencies": {
-    "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "express-pino-logger": "^5.0.0",
+    "express": "latest",
+    "express-pino-logger": "latest",
     "lodash": "latest",
+    "mustache-express": "latest",
     "pino": "latest",
     "regenerator-runtime": "latest"
   },
