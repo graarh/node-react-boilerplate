@@ -2,16 +2,23 @@ typescript + mocha + babel boilerplate
 ---------------------------------------
 Good for:
 
+* fresh start of node back + react front app
 * migration from es2015 js code to typescript
 * ts + mocha fresh start if you plan to use old js code
 
 Supports both ts and js. Allows mixed imports: js from ts, ts from js.
 
-Absolute path imports starting with 'server/', see sample code.
+Absolute path imports starting with 'server/', 'src/', see sample code.
 
 Express and heroku support.
 
 React app, based on react-scripts, with mustache templates for preloaded server values.
+
+Socket.io support.
+
+## src/shared and server/shared are same, server/shared is the symlink
+
+Please, be careful.
 
 ## Available Scripts
 
