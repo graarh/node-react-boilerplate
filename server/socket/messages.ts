@@ -1,5 +1,4 @@
 import {Socket} from 'socket.io';
-import {v4 as uuid} from 'uuid';
 import {ChatMessage, messagesLimit} from 'server/shared/message';
 import moment from 'moment';
 
@@ -8,7 +7,7 @@ let lastMessageId = 0;
 
 export function handleMessages(): (socket: Socket) => void {
   return socket => {
-    const uid = uuid();
+    const uid = socket.id;
     socket.local.emit('uid', uid);
     socket.local.emit('history', messages);
 
