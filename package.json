@@ -107,7 +107,8 @@
     "pino": "latest",
     "regenerator-runtime": "latest",
     "rxjs": "latest",
-    "socket.io": "latest"
+    "socket.io": "latest",
+    "uuid": "latest"
   },
   "engines": {
     "node": "14.x"
