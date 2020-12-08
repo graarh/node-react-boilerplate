@@ -1,6 +1,9 @@
 {
-  "presets": ["@babel/preset-env"],
+  "presets": ["@babel/preset-env", "@babel/preset-flow"],
   "plugins": [
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
     ["@babel/plugin-proposal-class-properties", {
       "loose": true
     }],
@@ -8,8 +11,16 @@
       "loose": true
     }],
     ["babel-plugin-root-import", {
-      "rootPathSuffix": "./server/",
-      "rootPathPrefix": "server/"
+      "paths": [
+        {
+          "rootPathSuffix": "./server/",
+          "rootPathPrefix": "server/"
+        },
+        {
+          "rootPathSuffix": "./src/",
+          "rootPathPrefix": "src/"
+        }
+      ]
     }]
   ],
   "overrides": [{

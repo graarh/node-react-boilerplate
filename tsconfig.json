@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "baseUrl": ".",
     "target": "es5",
     "lib": [
@@ -23,7 +24,8 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src", "server", "test"
+    "src", "server",
+    "src/shared", "test"
   ],
   "exclude": ["node_modules"]
 }

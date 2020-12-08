@@ -6,16 +6,17 @@
   "license": "BSD-3-Clause",
   "main": "server/index.ts",
   "exports": {
-    "server/": "./server/"
+    "server/": "./server/",
+    "src/": "./src/"
   },
   "scripts": {
-    "build": "react-scripts build; babel --extensions '.ts,.js' server -s -D -d dist",
+    "build": "export NODE_ENV=production; react-scripts build; babel --extensions '.ts,.js' server src/shared -s -D -d dist",
     "start": "node dist/index.js",
-    "once": "babel-node --extensions '.ts,.js' server/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
-    "watch": "nodemon -w server --exec \\\"babel-node --extensions '.ts,.js' src | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\\\"",
+    "once": "export NODE_ENV=development; babel-node --extensions '.ts,.js' server/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
+    "watch": "export NODE_ENV=development; nodemon -w server server/index.ts --exec \"babel-node --extensions '.ts,.js' server/index.ts | pino-pretty -c -t HH:MM:ss.l -i hostname,pid\"",
     "test": "mocha --require ts-node/register './test/**/*.?s' | pino-pretty -c -t HH:MM:ss.l -i hostname,pid",
-    "r-start": "react-scripts start",
-    "r-build": "react-scripts build",
+    "r-start": "export NODE_ENV=development; react-scripts start",
+    "r-build": "export NODE_ENV=production; react-scripts build",
     "r-test": "react-scripts test"
   },
   "eslintConfig": {
@@ -52,8 +53,10 @@
     "@babel/core": "latest",
     "@babel/node": "latest",
     "@babel/plugin-proposal-class-properties": "latest",
+    "@babel/plugin-proposal-decorators": "latest",
     "@babel/plugin-proposal-private-methods": "latest",
     "@babel/preset-env": "latest",
+    "@babel/preset-flow": "^7.12.1",
     "@babel/preset-typescript": "latest",
     "@babel/register": "latest",
     "@jest/globals": "latest",
@@ -80,23 +83,31 @@
     "eslint-plugin-jsx-a11y": "latest",
     "eslint-plugin-react": "latest",
     "eslint-plugin-react-hooks": "latest",
+    "linkify-it": "latest",
     "mocha": "latest",
     "nodemon": "latest",
     "pino-pretty": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest",
+    "socket.io-client": "latest",
+    "tlds": "latest",
     "ts-node": "latest",
     "typescript": "latest",
     "web-vitals": "latest"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "latest",
     "express-pino-logger": "latest",
+    "firebase": "^8.1.2",
     "lodash": "latest",
+    "moment": "latest",
     "mustache-express": "latest",
     "pino": "latest",
-    "regenerator-runtime": "latest"
+    "regenerator-runtime": "latest",
+    "rxjs": "latest",
+    "socket.io": "latest"
   },
   "engines": {
     "node": "14.x"
