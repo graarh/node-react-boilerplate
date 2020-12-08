@@ -5,7 +5,7 @@ import {io} from 'socket.io-client';
 
 const serverUrl = process.env.NODE_ENV === 'development' ? 'localhost:80' : '';
 
-const socket = io(`ws://${serverUrl}/`, {
+const socket = io(`//${serverUrl}/`, {
   transports: ['websocket']
 });
 
