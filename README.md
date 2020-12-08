@@ -1,10 +1,9 @@
-typescript + mocha + babel boilerplate
----------------------------------------
+node + react boilerplate
+------------------------
 Good for:
 
 * fresh start of node back + react front app
 * migration from es2015 js code to typescript
-* ts + mocha fresh start if you plan to use old js code
 
 Supports both ts and js. Allows mixed imports: js from ts, ts from js.
 
