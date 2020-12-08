@@ -56,7 +56,7 @@
     "@babel/plugin-proposal-decorators": "latest",
     "@babel/plugin-proposal-private-methods": "latest",
     "@babel/preset-env": "latest",
-    "@babel/preset-flow": "^7.12.1",
+    "@babel/preset-flow": "latest",
     "@babel/preset-typescript": "latest",
     "@babel/register": "latest",
     "@jest/globals": "latest",
@@ -97,10 +97,9 @@
     "web-vitals": "latest"
   },
   "dependencies": {
-    "cors": "^2.8.5",
+    "cors": "latest",
     "express": "latest",
     "express-pino-logger": "latest",
-    "firebase": "^8.1.2",
     "lodash": "latest",
     "moment": "latest",
     "mustache-express": "latest",
