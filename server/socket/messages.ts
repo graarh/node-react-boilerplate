@@ -1,6 +1,6 @@
 import {Socket} from 'socket.io';
 import {v4 as uuid} from 'uuid';
-import {ChatMessage, messagesLimit} from 'server/socket/message';
+import {ChatMessage, messagesLimit} from 'server/shared/message';
 import moment from 'moment';
 
 const messages: ChatMessage[] = [];
